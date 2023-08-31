@@ -21,6 +21,10 @@ export class TaskService {
     return this._httpClient.get<State[]>(this.url + "/state",  { headers: this.headers() })
   }
 
+  public addState(state: State) {
+    return this._httpClient.post(this.url + "/state/add", state, { headers: this.headers() })
+  }
+
   private headers(){
     return new HttpHeaders({
       'Access-Control-Allow-Origin': '*'

@@ -9,6 +9,7 @@ import { Task } from 'src/app/model/Task';
 })
 export class CardFormComponent {
   @Input() task!: Task
+  visible: boolean = true
   taskGroup!: FormGroup
 
   constructor(private fb: FormBuilder){}
@@ -18,6 +19,10 @@ export class CardFormComponent {
     this.fillForm()
     this.fillNotesArray()
     this.fillPersonsArray()
+  }
+
+  ngOnChanges(){
+    console.log('change')
   }
 
   createForm(){

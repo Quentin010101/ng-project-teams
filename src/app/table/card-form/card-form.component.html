@@ -1,4 +1,4 @@
-<div class="card bg-primary-3 border-r-1">
+<div class="card bg-primary-3 border-r-1" [ngStyle]="{'display': visible? '' : 'none'}">
     <form [formGroup]="taskGroup">
       <div class="header">
         <app-letter [person]="task.person"></app-letter>

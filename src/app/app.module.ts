@@ -16,6 +16,9 @@ import { ContainerFlexComponent } from './utils/container-flex/container-flex.co
 import { AddComponent } from './utils/add/add.component';
 import { NoteComponent } from './table/card/note/note.component';
 import { CardFormComponent } from './table/card-form/card-form.component';
+import { AddStateComponent } from './table/add-state/add-state.component';
+import { RemoveStateComponent } from './table/remove-state/remove-state.component';
+import { AddTaskComponent } from './table/add-task/add-task.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { CardFormComponent } from './table/card-form/card-form.component';
     AddComponent,
     NoteComponent,
     CardFormComponent,
+    AddStateComponent,
+    RemoveStateComponent,
+    AddTaskComponent,
 
   ],
   imports: [

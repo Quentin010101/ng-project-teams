@@ -1,6 +1,16 @@
-<h3>{{ state.name }}</h3>
-<ng-container *ngIf="tasksOfState[0] != null">
-  <ng-container *ngFor="let task of tasksOfState">
-    <app-card [task]="task"></app-card>
-  </ng-container>
-</ng-container>
+<div>
+  <div class="title">
+    <h3>{{ state.name }}</h3>
+  </div>
+  <div class="add">
+    <app-add-task (add)="addTask()"></app-add-task>
+  </div>
+  <div>
+    <ng-container *ngIf="tasksOfState[0] != null">
+      <ng-container *ngFor="let task of tasksOfState">
+        <app-card [task]="task"></app-card>
+        <!-- <app-card-form [task]="task"></app-card-form> -->
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

@@ -7,14 +7,16 @@ import { Person } from 'src/app/model/Person';
   styleUrls: ['./letter.component.css']
 })
 export class LetterComponent {
-  @Input() person!: Person
-  letter1!: string
-  letter2!: string
+  @Input() person: Person = new Person()
+  letter1: string = ''
+  letter2: string = ''
 
 
   ngOnInit(){
-    this.letter1 = this.person.surname.substring(0,1)
-    this.letter2 = this.person.name.substring(0,1)
+    if(this.person != null) {
+      this.letter1 = this.person.surname.substring(0,1)
+      this.letter2 = this.person.name.substring(0,1)
+    }
 
   }
 

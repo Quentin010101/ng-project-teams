@@ -18,4 +18,8 @@ export class ColumnComponent {
       if(task.state.state_id == this.state.state_id) this.tasksOfState.push(task)
     })
   }
+
+  addTask(){
+    this.tasksOfState.push(new Task())
+  }
 }

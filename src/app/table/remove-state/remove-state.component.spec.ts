@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardFormComponent } from './card-form.component';
+import { RemoveStateComponent } from './remove-state.component';
 
-describe('CardFormComponent', () => {
-  let component: CardFormComponent;
-  let fixture: ComponentFixture<CardFormComponent>;
+describe('RemoveStateComponent', () => {
+  let component: RemoveStateComponent;
+  let fixture: ComponentFixture<RemoveStateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardFormComponent ]
+      declarations: [ RemoveStateComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CardFormComponent);
+    fixture = TestBed.createComponent(RemoveStateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
