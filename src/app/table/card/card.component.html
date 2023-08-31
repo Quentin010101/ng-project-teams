@@ -29,4 +29,7 @@
       </div>
     </div>
   </form>
+  <ng-container *ngIf="personsTot != null">
+    <app-add-person [addPerson]="addPerson" [personsTot]="personsTot"></app-add-person>
+  </ng-container>
 </div>

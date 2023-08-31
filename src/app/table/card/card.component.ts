@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Person } from 'src/app/model/Person';
 import { Task } from 'src/app/model/Task';
+import { PersonService } from 'src/app/service/person.service';
 
 @Component({
   selector: 'app-card',
@@ -10,14 +12,23 @@ import { Task } from 'src/app/model/Task';
 export class CardComponent {
   @Input() task!: Task
   taskGroup!: FormGroup
+  addPerson!: Person[]
+  personsTot!: Person[]
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder, private _personService: PersonService){}
 
   ngOnInit(){
+    this._personService.getPersons().subscribe({
+      next: (data) => {
+        console.log(data)
+        this.personsTot = data
+      }
+    })
     this.createForm()
     this.fillForm()
     this.fillNotesArray()
     this.fillPersonsArray()
+    this.initPersonAdd()
   }
 
   createForm(){
@@ -83,5 +94,9 @@ export class CardComponent {
   removePerson(i: number){
     const personsArray = this.taskGroup.get('persons') as FormArray
     personsArray.removeAt(i)
+  }
+
+  initPersonAdd(){
+    this.addPerson = this.task.persons
   }
 }
