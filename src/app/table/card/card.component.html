@@ -1,32 +1,17 @@
-<div class="card">
-  <form [formGroup]="taskGroup">
-    <div class="header">
-      <app-letter [person]="task.person"></app-letter>
-      <small><i>{{ task.date_creation | numberToDate | date:'dd/MM/yyyy' }}</i></small>
+<div class="card bg-primary-3 border-r-1">
+  <div class="header">
+    <app-letter [person]="task.person"></app-letter>
+    <small><i>{{ task.date_creation | numberToDate | date: 'dd/MM/yy' }}</i></small>
+  </div>
+  <div class="content">
+    <h4>{{ task.title }}</h4>
+    <p>{{ task.description }}</p>
+  </div>
+  <div class="footer">
+    <div class="persons">
+      <ng-container *ngFor="let p of task.persons">
+        <app-letter [person]="p"></app-letter>
+      </ng-container>
     </div>
-    <div class="content">
-      <div>
-        <input type="text" formControlName="title">
-      </div>
-      <div>
-        <textarea formControlName="description"></textarea>
-      </div>
-      <div formArrayName="notes">
-        <ng-container *ngFor="let note of notes.controls; let i = index">
-          <app-note [y]="note" [index]="i" (deleteNote)="deleteNote($event)"></app-note>
-        </ng-container>
-        <div>
-          <input type="checkbox"  id="">
-          <input type="text" (blur)="addNotes($event)">
-        </div>
-      </div>
-    </div>
-    <div class="footer">
-      <div formArrayName="persons">
-        <ng-container *ngFor="let person of persons.controls; let i = index">
-          <app-letter [person]="person.value" (click)="removePerson(i)"></app-letter>
-        </ng-container>
-      </div>
-    </div>
-  </form>
+  </div>
 </div>

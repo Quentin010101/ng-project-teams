@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ContainerFlexComponent } from './utils/container-flex/container-flex.component';
 import { AddComponent } from './utils/add/add.component';
 import { NoteComponent } from './table/card/note/note.component';
+import { CardFormComponent } from './table/card-form/card-form.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { NoteComponent } from './table/card/note/note.component';
     ContainerFlexComponent,
     AddComponent,
     NoteComponent,
+    CardFormComponent,
 
   ],
   imports: [

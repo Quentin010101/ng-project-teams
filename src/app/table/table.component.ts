@@ -15,8 +15,11 @@ export class TableComponent {
   constructor(private _taskService: TaskService){}
 
   ngOnInit(){
-    this.getStates()
-    this.getTasks()
+
+    this.getFakeData()
+    
+    // this.getStates()
+    // this.getTasks()
   }
 
   getTasks(){
@@ -33,5 +36,159 @@ export class TableComponent {
         this.states = data
       }
     })
+  }
+
+  getFakeData(){
+    this.states = [
+      {
+        state_id: 1,
+        name: "A Faire",
+      },
+      {
+        state_id: 2,
+        name: "En cours",
+      },
+      {
+        state_id: 3,
+        name: "Terminé",
+      }
+    ]
+    this.tasks = [
+      {
+        task_id: 1,
+        date_creation: 111112354,
+        date_modification: 0,
+        date_echeance: 0,
+        title: 'title1',
+        description: 'description description description description description',
+        notes: [{
+          note_id: 1,
+          name: 'text',
+          bool: false
+        }],
+        state: {
+          state_id: 1,
+          name: "A Faire",
+        },
+        person: {
+          person_id: 0,
+          date_creation: 0,
+          date_modification: 0,
+          name: 'James',
+          surname: 'Smith',
+          email: ''
+        },
+        persons: [{
+          person_id: 0,
+          date_creation: 0,
+          date_modification: 0,
+          name: 'Kyle',
+          surname: 'Moroe',
+          email: ''
+        },
+        {
+          person_id: 0,
+          date_creation: 0,
+          date_modification: 0,
+          name: 'Kyli',
+          surname: 'Robert',
+          email: ''
+        },
+        {
+          person_id: 0,
+          date_creation: 0,
+          date_modification: 0,
+          name: 'More',
+          surname: 'Pert',
+          email: ''
+        },],
+        tags: []
+      },
+      {
+        task_id: 1,
+        date_creation: 111112354,
+        date_modification: 0,
+        date_echeance: 0,
+        title: 'title1',
+        description: 'description description description description description',
+        notes: [{
+          note_id: 3,
+          name: 'text',
+          bool: false
+        }],
+        state: {
+          state_id: 2,
+          name: "A Faire",
+        },
+        person: {
+          person_id: 0,
+          date_creation: 0,
+          date_modification: 0,
+          name: 'James',
+          surname: 'Smith',
+          email: ''
+        },
+        persons: [{
+          person_id: 0,
+          date_creation: 0,
+          date_modification: 0,
+          name: 'Albe',
+          surname: 'Laure',
+          email: ''
+        },
+        {
+          person_id: 0,
+          date_creation: 0,
+          date_modification: 0,
+          name: 'Kyli',
+          surname: 'Robert',
+          email: ''
+        },
+        {
+          person_id: 0,
+          date_creation: 0,
+          date_modification: 0,
+          name: 'Mike',
+          surname: 'Slop',
+          email: ''
+        },],
+        tags: []
+      },
+      {
+        task_id: 1,
+        date_creation: 1122251123154,
+        date_modification: 0,
+        date_echeance: 0,
+        title: 'title1',
+        description: 'description description description description description',
+        notes: [{
+          note_id: 3,
+          name: 'text',
+          bool: false
+        }],
+        state: {
+          state_id: 2,
+          name: "A Faire",
+        },
+        person: {
+          person_id: 0,
+          date_creation: 0,
+          date_modification: 0,
+          name: 'Mike',
+          surname: 'Slop',
+          email: ''
+        },
+        persons: [
+        {
+          person_id: 0,
+          date_creation: 0,
+          date_modification: 0,
+          name: 'titi',
+          surname: 'des',
+          email: ''
+        },],
+        tags: []
+      }
+    ]
   }
 }

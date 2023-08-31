@@ -2,9 +2,10 @@ p{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem;
+  padding: 0.9rem;
   border-radius: 100%;
-  width: 30px;
-  height: 30px;
-  font-weight: 600;
+  width: 15px;
+  height: 15px;
+  font-weight: 500;
+  font-size: 12px;
 }

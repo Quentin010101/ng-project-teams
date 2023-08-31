@@ -7,6 +7,28 @@
 
 body{
   font-family: 'Poppins';
+  background-color: rgb(18, 18, 18);
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.bg-primary-1{
+  background-color: rgb(18, 18, 18);
+}
+.bg-primary-2{
+  background-color: rgb(22, 22, 22);
+}
+.bg-primary-3{
+  background-color: rgb(30, 30, 30);
+}
+.border-r-1{
+  border-radius: 0.25rem;
+}
+.border-r-2{
+  border-radius: 0.5rem;
+}
+h3{
+  color: white;
+}
+small{
+  font-size: 0.65em;
+  font-weight: 300;
+}
