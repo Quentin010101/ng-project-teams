@@ -32,3 +32,12 @@ small{
   font-size: 0.65em;
   font-weight: 300;
 }
+.color-w-1{
+  color: rgb(250,250,250)
+}
+.color-w-2{
+  color: rgb(230,230,230)
+}
+.color-w-3{
+  color: rgb(210,210,210)
+}

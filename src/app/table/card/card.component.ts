@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Task } from 'src/app/model/Task';
 import { PersonService } from 'src/app/service/person.service';
 
@@ -9,4 +10,9 @@ import { PersonService } from 'src/app/service/person.service';
 })
 export class CardComponent {
   @Input() task!: Task
+
+  showCardForm(){
+
+  }
+
 }

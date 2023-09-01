@@ -10,6 +10,7 @@ import { TaskService } from 'src/app/service/task.service';
 })
 export class AddStateComponent {
   form!: FormGroup
+  newState: boolean = false
 
   constructor(private _taskService: TaskService){}
 
@@ -25,5 +26,9 @@ export class AddStateComponent {
       state = this.form.value
       this._taskService.addState(state)
     }
+  }
+
+  showForm(){
+    this.newState = !this.newState
   }
 }

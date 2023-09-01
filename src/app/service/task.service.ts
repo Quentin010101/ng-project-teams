@@ -17,12 +17,19 @@ export class TaskService {
     return this._httpClient.get<Task[]>(this.url + '/task', { headers: this.headers() })
   }
 
+  public getTasksByState(): Observable<Task[]>{
+    return this._httpClient.get<Task[]>(this.url + '/task/state', { headers: this.headers() })
+  }
+
   public getStates(): Observable<State[]> {
     return this._httpClient.get<State[]>(this.url + "/state",  { headers: this.headers() })
   }
 
   public addState(state: State) {
     return this._httpClient.post(this.url + "/state/add", state, { headers: this.headers() })
+  }
+  public addTask(task: Task){
+    return this._httpClient.post(this.url + "/task/add", task, { headers: this.headers() })
   }
 
   private headers(){

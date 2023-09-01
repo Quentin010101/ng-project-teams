@@ -1,0 +1,12 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+h3{
+    margin-left: 0.5rem;
+}
+.column{
+    width: 250px
+
+}

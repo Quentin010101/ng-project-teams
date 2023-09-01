@@ -16,10 +16,10 @@ export class TableComponent {
 
   ngOnInit(){
 
-    // this.getFakeData()
+    this.getFakeData()
     
-    this.getStates()
-    this.getTasks()
+    // this.getStates()
+    // this.getTasks()
   }
 
   getTasks(){

@@ -1,3 +1,15 @@
-<div (click)="addNewTask()">
+<div  (click)="addNewTask()" 
+      (mouseover)="hover=true" 
+      (mouseleave)="hover=false"
+      class="add"
+      [ngClass]="{ 'bg-primary-2': hover, 'bg-primary-3': !hover  }">
   <mat-icon>add</mat-icon>
 </div>
+<ng-container *ngIf="newTask">
+  <div class="card-temp  bg-primary-3 border-r-1">
+    <form [formGroup]="form">
+      <input type="text" formControlName="title">
+      <button type="submit" [disabled]="!form.valid" (click)="onSubmit()">Ajouter tâche</button>
+    </form>
+  </div>
+</ng-container>

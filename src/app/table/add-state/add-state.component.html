@@ -1,3 +1,9 @@
-<form [formGroup]="form">
-  <input type="text" formControlName="name">
-</form>
+<div class="link color-w-2" [ngClass]="{'display': newState}" (click)="showForm()">
+  <h3>Ajout colonne</h3>
+  <mat-icon>add</mat-icon>
+</div>
+<div [ngClass]="{'display':!newState}">
+  <form [formGroup]="form">
+    <input type="text" formControlName="name">
+  </form>
+</div>

@@ -4,6 +4,9 @@ import { State } from "./State"
 import { Tag } from "./Tag"
 
 export class Task{
+  constructor(){
+    this.title = ''
+  }
   task_id!: number
   date_creation!: number
   date_modification!: number

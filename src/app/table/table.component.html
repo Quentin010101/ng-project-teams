@@ -2,8 +2,9 @@
   <ng-container *ngIf="states != null && tasks != null">
     <app-container-flex [gap]="1.5">
       <ng-container *ngFor="let state of states">
-        <app-column [state]="state" [tasks]="tasks"></app-column>
+        <app-column [state]="state" [tasks]="tasks" ></app-column>
       </ng-container>
+      <app-add-state></app-add-state>
     </app-container-flex>
   </ng-container>
 </div>
