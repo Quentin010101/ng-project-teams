@@ -1,7 +1,10 @@
-<div class="card bg-primary-3 border-r-1">
-  <div class="header">
+<div class="card bg-primary-3 border-r-1" (click)="showForm()">
+  <!-- <div class="header">
     <app-letter [person]="task.person"></app-letter>
     <small><i>{{ task.date_creation | numberToDate | date: 'dd/MM/yy' }}</i></small>
+  </div> -->
+  <div class="close" [ngClass]="{'color-b-1':hover,  'color-b-2':!hover}" (mouseleave)="hover=false" (mouseenter)="hover=true" (click)="showMenu()">
+    <mat-icon>apps</mat-icon>
   </div>
   <div class="content">
     <h4>{{ task.title }}</h4>
@@ -14,4 +17,15 @@
       </ng-container>
     </div>
   </div>
+  <ng-container *ngIf="menuOpen">
+    <div class="menuCard  bg-primary-3 border-r-1">
+      <h4>Menu</h4>
+      <ul>
+        <li (click)="removeTask()">
+          Supprimer tâche
+        </li>
+      </ul>
+    </div>
+  </ng-container>
 </div>
+<app-card-form [task]="task" [visible]="showCardForm"></app-card-form> 

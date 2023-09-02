@@ -34,19 +34,22 @@ export class AddTaskComponent {
     let t = new Task()
     t.title = this.form.get('title')?.value
     t.state = this.state
-    this._taskService.addTask(t)
+    this._taskService.addTask(t).subscribe({
+      next: () => this.reinit()
+    })
     this.resetForm()
-    this.reinit()
   }
   resetForm(){
     this.form.reset()
     this.newTask = false
   }
   reinit(){
-    this.reinitTasks.emit()
+    this.reinitTasks.emit(this.state)
   }
 
   close(e: Event) {
-    if(!this._eref.nativeElement.contains(e.target) && this.newTask == true) this.resetForm()
+    if(!this._eref.nativeElement.contains(e.target) && this.newTask == true) {
+      this.resetForm()
+    }
   }
 }

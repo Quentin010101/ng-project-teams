@@ -41,3 +41,15 @@ small{
 .color-w-3{
   color: rgb(210,210,210)
 }
+.color-b-1{
+  color: rgb(18, 18, 18);
+}
+.color-b-2{
+  color: rgb(22, 22, 22);
+}
+.color-b-3{
+  color: rgb(30, 30, 30);
+}
+.small-icon{
+  transform: scale(0.7);
+}

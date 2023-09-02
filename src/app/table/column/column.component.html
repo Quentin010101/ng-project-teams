@@ -1,15 +1,19 @@
 <div class="column">
-  <div class="title">
-    <h3 class="color-w-2">{{ state.name }}</h3>
+  <div class="title color-w-2" [ngClass]="{'bg-primary-2' : hover}" (mouseenter)="hover=true" (mouseleave)="hover=false">
+    <h3 class="">{{ state.name }}</h3>
+    <ng-container *ngIf="hover">
+      <div class="delete" [ngClass]="{'bg-primary-2' : !hoverD, 'bg-primary-3' : hoverD}" (mouseenter)="hoverD=true" (mouseleave)="hoverD=false" (click)="deleteState()">
+        <mat-icon class="small-icon">close</mat-icon>
+      </div>
+    </ng-container>
   </div>
   <div class="add">
-    <app-add-task [state]="state" (reinitTasks)="updateTasks()"></app-add-task>
+    <app-add-task [state]="state" (reinitTasks)="updateTasks(state)"></app-add-task>
   </div>
   <div class="content">
     <ng-container *ngIf="tasksOfState[0] != null">
       <ng-container *ngFor="let task of tasksOfState">
-        <app-card [task]="task"></app-card>
-        <app-card-form [task]="task"></app-card-form> 
+        <app-card [task]="task" (deleteTask)="deleteTask(task)"></app-card>
       </ng-container>
     </ng-container>
   </div>

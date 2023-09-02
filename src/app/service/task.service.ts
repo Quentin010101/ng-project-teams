@@ -17,8 +17,8 @@ export class TaskService {
     return this._httpClient.get<Task[]>(this.url + '/task', { headers: this.headers() })
   }
 
-  public getTasksByState(): Observable<Task[]>{
-    return this._httpClient.get<Task[]>(this.url + '/task/state', { headers: this.headers() })
+  public getTasksByState(state: State): Observable<Task[]>{
+    return this._httpClient.post<Task[]>(this.url + '/task/state',state, { headers: this.headers() })
   }
 
   public getStates(): Observable<State[]> {
@@ -29,7 +29,14 @@ export class TaskService {
     return this._httpClient.post(this.url + "/state/add", state, { headers: this.headers() })
   }
   public addTask(task: Task){
-    return this._httpClient.post(this.url + "/task/add", task, { headers: this.headers() })
+    return this._httpClient.post(this.url + "/task/create", task, { headers: this.headers() })
+  }
+
+  public removeTask(task: Task){
+    return this._httpClient.delete(this.url + "/task/delete/"+ task.task_id, { headers: this.headers() })
+  }
+  public removeState(state: State){
+    return this._httpClient.delete(this.url + "/state/delete/"+ state.state_id, { headers: this.headers() })
   }
 
   private headers(){

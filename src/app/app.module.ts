@@ -19,10 +19,14 @@ import { CardFormComponent } from './table/card-form/card-form.component';
 import { AddStateComponent } from './table/add-state/add-state.component';
 import { RemoveStateComponent } from './table/remove-state/remove-state.component';
 import { AddTaskComponent } from './table/add-task/add-task.component';
+import { CloseElementOnClickOutsideDirective } from './directive/close-element-on-click-outside.directive';
+import { CommonModule } from '@angular/common';
+import { DialogComponent } from './utils/dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CloseElementOnClickOutsideDirective,
     TableComponent,
     ColumnComponent,
     CardComponent,
@@ -36,7 +40,7 @@ import { AddTaskComponent } from './table/add-task/add-task.component';
     AddStateComponent,
     RemoveStateComponent,
     AddTaskComponent,
-
+    DialogComponent,
   ],
   imports: [
     BrowserModule,

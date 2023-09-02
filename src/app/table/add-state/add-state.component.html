@@ -1,9 +1,12 @@
 <div class="link color-w-2" [ngClass]="{'display': newState}" (click)="showForm()">
-  <h3>Ajout colonne</h3>
+  <h3 [ngClass]="{'color-w-1': hover, 'color-w-3': !hover}" (mouseenter)="hover=true" (mouseleave)="hover=false">Ajout colonne</h3>
   <mat-icon>add</mat-icon>
 </div>
-<div [ngClass]="{'display':!newState}">
-  <form [formGroup]="form">
-    <input type="text" formControlName="name">
-  </form>
-</div>
+<ng-container *ngIf="newState">
+  <div class="addState bg-primary-3">
+    <form [formGroup]="form">
+      <input class=" color-w-2" type="text" formControlName="name" autofocus (blur)="add()"
+        (keydown)="addOnEnter($event)">
+    </form>
+  </div>
+</ng-container>

@@ -9,7 +9,7 @@ import { Task } from 'src/app/model/Task';
 })
 export class CardFormComponent {
   @Input() task!: Task
-  visible: boolean = false
+  @Input() visible: boolean = false
   taskGroup!: FormGroup
 
   constructor(private fb: FormBuilder){}

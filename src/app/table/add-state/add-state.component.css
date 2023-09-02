@@ -1,9 +1,22 @@
-.display{
-    display: none;
-}
+
 .link{
+    padding: 0.5rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
+    width: 250px
+}
+.addState{
+  margin: 0.75rem 0;
+  padding: 0.5rem;
+  width: 250px
+}
+.addState input{
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  font-weight: 500;
 }
