@@ -4,10 +4,59 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -60%);
     width: 600px
 }
 .header{
     display: flex;
     justify-content: space-between;
 }
+input[type="text"], textarea{
+  background-color: transparent;
+  border: none;
+  resize: none;
+  width: 100%;
+  outline: none;
+}
+textarea{
+  height: 10rem;
+  padding: 0.5rem;
+  font-size: 1em;
+}
+.content{
+  padding: 0.5rem 1.5rem;
+}
+.f_title{
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+}
+.f_title mat-icon{
+  transform: scale(0.8);
+}
+.f_title input{
+  font-size: 1.2em;
+}
+.field{
+  margin-bottom: 1rem;
+}
+label{
+  font-size: 0.9em;
+}
+.addP{
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  border: 2px solid white;
+  transform: scale(0.8);
+}
+.padd{
+  gap: 0.25rem;
+}
+app-letter{
+  cursor: pointer;
+}
+

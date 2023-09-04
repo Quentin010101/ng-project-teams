@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
+import { Person } from 'src/app/model/Person';
 import { Task } from 'src/app/model/Task';
+import { TaskService } from 'src/app/service/task.service';
 
 @Component({
   selector: 'app-card-form',
@@ -8,24 +10,37 @@ import { Task } from 'src/app/model/Task';
   styleUrls: ['./card-form.component.css']
 })
 export class CardFormComponent {
+  @Output() visibility = new EventEmitter()
   @Input() task!: Task
   @Input() visible: boolean = false
   taskGroup!: FormGroup
+  appear: boolean = false
+  hoverAddPerson: boolean = false
+  addPersonVisible: boolean = false
+  personsArray!: FormArray
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder, private _taskService: TaskService){}
 
   ngOnInit(){
     this.createForm()
     this.fillForm()
     this.fillNotesArray()
     this.fillPersonsArray()
+    this.personsArray.valueChanges.subscribe({
+      next: (d) => {
+        console.log(d)
+        this.save()
+      } 
+    })
   }
+
 
   createForm(){
     this.taskGroup = this.fb.group({
       task_id: [''],
-      title : [''],
+      title : ['', Validators.required],
       description : [''],
+      state: [''],
       notes: this.fb.array([]),
       persons: this.fb.array([])
     })
@@ -47,9 +62,9 @@ export class CardFormComponent {
     }
   }
   fillPersonsArray(){
-    const personsArray = this.taskGroup.get('persons') as FormArray
+    this.personsArray = this.taskGroup.get('persons') as FormArray
     for(let i = 0; i < this.task.persons.length; i++){    
-      personsArray.push(new FormControl(this.task.persons[i]))
+      this.personsArray.push(new FormControl(this.task.persons[i]))
     }
   }
 
@@ -62,14 +77,16 @@ export class CardFormComponent {
 
   //Notes
   addNotes(e: Event){
-    const notesArray = this.taskGroup.get('notes')  as FormArray
-    
-    notesArray.push(new FormGroup({
-      name: new FormControl((e.target as HTMLInputElement).value),
-      bool: new FormControl(false)
-    }))
-
-     this.clearInput(e)
+    if((e.target as HTMLInputElement).value != ''){
+      const notesArray = this.taskGroup.get('notes')  as FormArray
+      
+      notesArray.push(new FormGroup({
+        name: new FormControl((e.target as HTMLInputElement).value),
+        bool: new FormControl(false)
+      }))
+  
+       this.clearInput(e)
+    }
   }
 
   deleteNote(e: number){
@@ -81,8 +98,42 @@ export class CardFormComponent {
   }
 
   // Person
-  removePerson(i: number){
-    const personsArray = this.taskGroup.get('persons') as FormArray
-    personsArray.removeAt(i)
+  
+  test(){
+    if(!this.appear){
+      this.appear = true
+    }else{
+      this.visibility.emit(false)
+      this.appear = false
+    }
   }
+  
+  save(){
+    if(!this.taskGroup.invalid){
+      this.taskGroup.updateValueAndValidity()
+      console.log(this.taskGroup.value)
+      this._taskService.updateTask(this.taskGroup.value).subscribe({
+        next: (data) => this.task = data
+      })
+    }
+  }
+  removePerson(i: number, event: Event){
+    event.stopPropagation()
+    this.personsArray.removeAt(i)
+  }
+  addToPersons(p: Person){
+    this.addPersonVisible = false
+    this.personsArray.push(new FormControl(p))
+  }
+
+  showAddPerson(event: Event){
+    event.stopPropagation();
+    this.addPersonVisible = true
+  }
+  closeAddperson(){
+    if(this.addPersonVisible){
+      this.addPersonVisible = false
+    }
+  }
+
 }

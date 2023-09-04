@@ -1,32 +1,50 @@
-<div class="card bg-primary-3 border-r-1" [ngStyle]="{'display': visible? '' : 'none'}">
-    <form [formGroup]="taskGroup">
-      <div class="header">
-        <app-letter [person]="task.person"></app-letter>
-        <small><i>{{ task.date_creation | numberToDate | date:'dd/MM/yyyy' }}</i></small>
-      </div>
-      <div class="content">
-        <div>
-          <input type="text" formControlName="title">
+<ng-container *ngIf="visible">
+  <div class="card bg-primary-3 border-r-1" (clickOutside)="test()">
+      <form [formGroup]="taskGroup">
+        <div class="header">
+          <app-letter [person]="task.person"></app-letter>
+          <small><i>{{ task.date_creation | numberToDate | date:'dd/MM/yyyy' }}</i></small>
         </div>
-        <div>
-          <textarea formControlName="description"></textarea>
-        </div>
-        <div formArrayName="notes">
-          <ng-container *ngFor="let note of notes.controls; let i = index">
-            <app-note [y]="note" [index]="i" (deleteNote)="deleteNote($event)"></app-note>
-          </ng-container>
-          <div>
-            <input type="checkbox"  id="">
-            <input type="text" (blur)="addNotes($event)">
+        <div class="content">
+          <div class="field">
+            <label for="" class="color-s-3">Titre:</label>
+            <div class="f_title border-r-1 bg-primary-2">
+              <input matInput type="text" formControlName="title" class="color-w-1" (blur)="save()">
+              <mat-icon matSuffix>create</mat-icon>
+            </div>
+          </div>
+          <div class="field">
+            <label for="" class="color-s-3">Description:</label>
+            <div class="f_description border-r-1 bg-primary-2">
+              <textarea formControlName="description" class="color-w-1" (blur)="save()"></textarea>
+            </div>
+          </div>
+          <div class="field">
+            <label for="" class="color-s-3">Notes:</label>
+            <div formArrayName="notes" class="f_notes">
+              <ng-container *ngFor="let note of notes.controls; let i = index">
+                <app-note [y]="note" [index]="i" (deleteNote)="deleteNote($event)" (save)="save()"></app-note>
+              </ng-container>
+              <div>
+                <input type="checkbox"  id="">
+                <input type="text" (blur)="addNotes($event)" class="color-w-3">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="footer">
-        <div formArrayName="persons">
-          <ng-container *ngFor="let person of persons.controls; let i = index">
-            <app-letter [person]="person.value" (click)="removePerson(i)"></app-letter>
-          </ng-container>
+        <div class="footer">
+          <div formArrayName="persons" class="flex padd align-center">
+            <ng-container *ngFor="let person of persons.controls; let i = index">
+              <app-letter [person]="person.value" (click)="removePerson(i, $event)"></app-letter>
+            </ng-container>
+            <div class="addP" [ngClass]="{'bg-primary-4': hoverAddPerson}" (mouseenter)="hoverAddPerson=true" (mouseleave)="hoverAddPerson=false" (click)="showAddPerson($event)">
+              <mat-icon >person_add</mat-icon>
+            </div>
+          </div>
         </div>
-      </div>
-    </form>
-  </div>
+      </form>
+        <ng-container *ngIf="addPersonVisible">
+          <app-add-person [addPerson]="task.persons" (clickOutside)="closeAddperson()" (addToPersons)="addToPersons($event)"></app-add-person>
+        </ng-container>
+    </div>
+</ng-container>

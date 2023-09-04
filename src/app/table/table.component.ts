@@ -26,6 +26,7 @@ export class TableComponent {
     this._taskService.getTasks().subscribe({
       next: (data) => {
         this.tasks = data
+        console.log(this.tasks)
       }
     })
   }

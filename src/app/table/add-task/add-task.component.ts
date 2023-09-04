@@ -32,8 +32,10 @@ export class AddTaskComponent {
   }
   onSubmit(){
     let t = new Task()
+    let d = new Date()
     t.title = this.form.get('title')?.value
     t.state = this.state
+    t.date_creation = d.getTime()
     this._taskService.addTask(t).subscribe({
       next: () => this.reinit()
     })

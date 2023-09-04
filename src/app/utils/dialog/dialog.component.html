@@ -1,5 +1,5 @@
-<div class="confirmation-dialog">
-  <p>Are you sure you want to proceed?</p>
-  <button (click)="confirm()">Yes</button>
-  <button (click)="cancel()">No</button>
+<div class="dialog">
+  <p>{{ data.message }}</p>
+  <button [mat-dialog-close]="true">Ok</button>
+  <button mat-dialog-close >Annuler</button>
 </div>

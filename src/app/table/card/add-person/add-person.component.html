@@ -1,5 +1,19 @@
-<div>
-  <ng-container *ngFor="let p of personToAdd">
-    <app-letter [person]="p"></app-letter>
+<div class="container border-r-1 bg-primary-3">
+  <ng-container *ngIf="actif">
+    <h5 class="color-s-3">Groupe:</h5>
+    <ng-container *ngFor="let p of personToAdd">
+      <app-hover-container (click)="addSpecificPerson(p, $event)">
+        <app-letter [person]="p"></app-letter>
+        <p>
+          {{ p.name }}
+        </p>
+        <p>
+          {{ p.surname }}
+        </p>
+      </app-hover-container>
+    </ng-container>
+    <ng-container *ngIf="personToAdd.length == 0">
+      <p>Aucune personne dans ce groupe</p>
+    </ng-container>
   </ng-container>
 </div>

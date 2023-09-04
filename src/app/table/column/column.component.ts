@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { State } from 'src/app/model/State';
 import { Task } from 'src/app/model/Task';
 import { TaskService } from 'src/app/service/task.service';
+import { DialogComponent } from 'src/app/utils/dialog/dialog.component';
 
 @Component({
   selector: 'app-column',
@@ -18,7 +20,7 @@ export class ColumnComponent {
 
   tasksOfState: Task[] = []
 
-  constructor(private _taskService: TaskService){}
+  constructor(private _taskService: TaskService, private dialog: MatDialog){}
 
   ngOnInit(){
     this.tasks.forEach((task: Task) => {
@@ -46,10 +48,20 @@ export class ColumnComponent {
     }
   )}
   deleteState(){
-    if(confirm("Voulez vous vraiment supprimer la colonne: " + this.state.name)){
-      this._taskService.removeState(this.state).subscribe({
-        next: (d) => this.updateState.emit()
-      })
-    }
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: { message: "Toutes les tâche associé seront supprimé!"}
+    })
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+      if (result) {
+
+        this._taskService.removeState(this.state).subscribe({
+          next: (d) => this.updateState.emit()
+        })
+      } else {
+        // User canceled the action.
+        console.log('Canceled');
+      }
+    })
   }
 }

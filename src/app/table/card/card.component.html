@@ -1,31 +1,33 @@
-<div class="card bg-primary-3 border-r-1" (click)="showForm()">
+<div class="card bg-primary-3 border-r-1 color-w-3" (click)="showForm()">
   <!-- <div class="header">
     <app-letter [person]="task.person"></app-letter>
     <small><i>{{ task.date_creation | numberToDate | date: 'dd/MM/yy' }}</i></small>
-  </div> -->
-  <div class="close" [ngClass]="{'color-b-1':hover,  'color-b-2':!hover}" (mouseleave)="hover=false" (mouseenter)="hover=true" (click)="showMenu()">
+  </div>  -->
+  <div class="close" [ngClass]="{'color-s-1':hover,  'color-s-3':!hover}" (mouseleave)="hover=false" (mouseenter)="hover=true" (click)="showMenu($event)">
     <mat-icon>apps</mat-icon>
   </div>
   <div class="content">
-    <h4>{{ task.title }}</h4>
-    <p>{{ task.description }}</p>
+    <h4 class="no-select">{{ task.title }}</h4>
+    <textarea rows="5" cols="40" readonly class="color-w-1 no-select">{{ task.description }}</textarea>
   </div>
   <div class="footer">
-    <div class="persons">
+    <div class="flex persons ">
       <ng-container *ngFor="let p of task.persons">
         <app-letter [person]="p"></app-letter>
       </ng-container>
     </div>
   </div>
   <ng-container *ngIf="menuOpen">
-    <div class="menuCard  bg-primary-3 border-r-1">
-      <h4>Menu</h4>
+    <div class="menuCard  bg-primary-3 border-r-1" (clickOutside)="closeMenu()">
+      <h4 class="color-s-3">Menu</h4>
       <ul>
-        <li (click)="removeTask()">
-          Supprimer tâche
-        </li>
+        <app-hover-container>
+          <li class="color-w-3" (click)="removeTask()">
+            Supprimer tâche
+          </li>
+        </app-hover-container>
       </ul>
     </div>
   </ng-container>
 </div>
-<app-card-form [task]="task" [visible]="showCardForm"></app-card-form> 
+<app-card-form [task]="task" [visible]="showCardForm" (visibility)="setCardFormVisibility(bool)"></app-card-form> 

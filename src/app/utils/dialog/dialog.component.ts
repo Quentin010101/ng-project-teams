@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-dialog',
@@ -6,13 +7,5 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent {
-  @Output() confirmed = new EventEmitter<boolean>();
-
-  confirm() {
-    this.confirmed.emit(true);
-  }
-
-  cancel() {
-    this.confirmed.emit(false);
-  }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {message: string}){}
 }

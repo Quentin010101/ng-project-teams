@@ -38,6 +38,10 @@ export class TaskService {
   public removeState(state: State){
     return this._httpClient.delete(this.url + "/state/delete/"+ state.state_id, { headers: this.headers() })
   }
+  public updateTask(task: Task): Observable<Task>{
+    return this._httpClient.put<Task>(this.url + "/task/update/"+ task.task_id, task, { headers: this.headers() })
+  }
+
 
   private headers(){
     return new HttpHeaders({

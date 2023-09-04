@@ -2,9 +2,6 @@ import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/cor
 import { Task } from 'src/app/model/Task';
 
 @Component({
-  host:{
-    '(document:click)' : 'close($event)'
-  },
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
@@ -15,22 +12,29 @@ export class CardComponent {
   showCardForm: boolean = false
   hover: boolean = false
   menuOpen: boolean = false
+  bool!: boolean
+
 
   constructor(private _eltRef: ElementRef){}
 
   showForm(){
+    if(!this.menuOpen)
     this.showCardForm = true
   }
 
   removeTask(){
     this.deleteTask.emit(this.task)
   }
-  showMenu(){
-    this.menuOpen = true
+  showMenu(e:Event){
+    e.stopPropagation()
+    if(!this.showCardForm)
+    this.menuOpen = !this.menuOpen
   }
-  close(e: Event){
-    if(!this._eltRef.nativeElement.contains(e.target) && this.menuOpen == true){
-      this.menuOpen = false
-    }
+  closeMenu(){
+    this.menuOpen = false
   }
+  setCardFormVisibility(bool: boolean){
+    this.showCardForm = bool
+  }
+  
 }

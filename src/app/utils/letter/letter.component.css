@@ -1,11 +1,14 @@
+:host{
+  height: fit-content;
+}
 p{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.9rem;
   border-radius: 100%;
-  width: 15px;
-  height: 15px;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 0.8em;
 }

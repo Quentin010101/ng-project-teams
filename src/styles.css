@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
+:root{
+  --bg-color-1: rgb(18, 18, 18);
+  --bg-color-2: rgb(25, 25, 25);
+  --bg-color-3: rgb(30, 30, 30);
+  --bg-color-4: rgb(35, 35, 35);
+}
 *{
   margin: 0;
   box-sizing: border-box;
@@ -11,13 +17,16 @@ body{
 }
 
 .bg-primary-1{
-  background-color: rgb(18, 18, 18);
+  background-color: var(--bg-color-1);
 }
 .bg-primary-2{
-  background-color: rgb(22, 22, 22);
+  background-color: var(--bg-color-2);
 }
 .bg-primary-3{
-  background-color: rgb(30, 30, 30);
+  background-color: var(--bg-color-3);
+}
+.bg-primary-4{
+  background-color: var(--bg-color-4);
 }
 .border-r-1{
   border-radius: 0.25rem;
@@ -50,6 +59,30 @@ small{
 .color-b-3{
   color: rgb(30, 30, 30);
 }
+.color-s-1{
+  color: rgb(36, 58, 153);
+}
+.color-s-2{
+  color: rgb(42, 67, 180);
+}
+.color-s-3{
+  color: rgb(46, 75, 202);
+}
 .small-icon{
   transform: scale(0.7);
+}
+.flex{
+  display: flex;
+}
+.justify-center{
+  justify-content: center;
+}
+.align-center{
+  align-items: center;
+}
+.no-select {
+  user-select: none;
+}
+h1,h2,h3,h4,h5,h6,p, label{
+  user-select: none !important;
 }

@@ -12,6 +12,7 @@ import { LetterComponent } from './utils/letter/letter.component';
 import { DatePipe } from './pipe/date.pipe';
 import { DeleteComponent } from './utils/delete/delete.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ContainerFlexComponent } from './utils/container-flex/container-flex.component';
 import { AddComponent } from './utils/add/add.component';
 import { NoteComponent } from './table/card/note/note.component';
@@ -22,6 +23,8 @@ import { AddTaskComponent } from './table/add-task/add-task.component';
 import { CloseElementOnClickOutsideDirective } from './directive/close-element-on-click-outside.directive';
 import { CommonModule } from '@angular/common';
 import { DialogComponent } from './utils/dialog/dialog.component';
+import { AddPersonComponent } from './table/card/add-person/add-person.component';
+import { HoverContainerComponent } from './utils/hover-container/hover-container.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,6 @@ import { DialogComponent } from './utils/dialog/dialog.component';
     TableComponent,
     ColumnComponent,
     CardComponent,
-    LetterComponent,
     DatePipe,
     DeleteComponent,
     ContainerFlexComponent,
@@ -41,12 +43,16 @@ import { DialogComponent } from './utils/dialog/dialog.component';
     RemoveStateComponent,
     AddTaskComponent,
     DialogComponent,
+    LetterComponent,
+    AddPersonComponent,
+    HoverContainerComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorService, multi: true }

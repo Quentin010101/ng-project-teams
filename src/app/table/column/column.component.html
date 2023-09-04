@@ -1,6 +1,6 @@
 <div class="column">
   <div class="title color-w-2" [ngClass]="{'bg-primary-2' : hover}" (mouseenter)="hover=true" (mouseleave)="hover=false">
-    <h3 class="">{{ state.name }}</h3>
+    <h3 class="no-select">{{ state.name }}</h3>
     <ng-container *ngIf="hover">
       <div class="delete" [ngClass]="{'bg-primary-2' : !hoverD, 'bg-primary-3' : hoverD}" (mouseenter)="hoverD=true" (mouseleave)="hoverD=false" (click)="deleteState()">
         <mat-icon class="small-icon">close</mat-icon>
