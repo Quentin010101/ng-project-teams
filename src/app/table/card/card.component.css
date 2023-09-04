@@ -73,14 +73,5 @@ textarea{
   padding-top: 0.5rem;
   margin-top: 0.5rem;
 }
-.date_echeance{
-  display: flex;
-  gap: 0.1rem;
-  align-items: center;
-  font-size: 0.8em;
-  background-color: rgb(170, 40, 40);
-  padding: 0.2rem 0.4rem;
-}
-.date_echeance mat-icon{
-  transform: scale(0.7);
-}
+
+

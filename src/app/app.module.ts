@@ -26,6 +26,7 @@ import { CloseElementOnClickOutsideDirective } from './directive/close-element-o
 import { DialogComponent } from './utils/dialog/dialog.component';
 import { AddPersonComponent } from './table/card/add-person/add-person.component';
 import { HoverContainerComponent } from './utils/hover-container/hover-container.component';
+import { EcheanceComponent } from './table/card/echeance/echeance.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { HoverContainerComponent } from './utils/hover-container/hover-container
     LetterComponent,
     AddPersonComponent,
     HoverContainerComponent,
+    EcheanceComponent,
     
   ],
   imports: [

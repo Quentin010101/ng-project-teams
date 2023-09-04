@@ -6,9 +6,9 @@
   --bg-color-3: rgb(30, 30, 30);
   --bg-color-4: rgb(35, 35, 35);
 
-  --color-s-1: rgb(59, 52, 100);
-  --color-s-2: rgb(72, 63, 122);
-  --color-s-3: rgb(85, 74, 145);
+  --color-s-1: rgb(52, 65, 100);
+  --color-s-2: rgb(63, 77, 122);
+  --color-s-3: rgb(74, 87, 145);
 }
 *{
   margin: 0;
@@ -67,13 +67,13 @@ small{
   color: rgb(30, 30, 30);
 }
 .color-s-1{
-  color: rgb(59, 52, 100);
+  color: var(--color-s-1);
 }
 .color-s-2{
-  color: rgb(72, 63, 122);
+  color: var(--color-s-2);;
 }
 .color-s-3{
-  color: rgb(85, 74, 145);
+  color: var(--color-s-3);;
 }
 .small-icon{
   transform: scale(0.7);
@@ -92,4 +92,8 @@ small{
 }
 h1,h2,h3,h4,h5,h6,p, label{
   user-select: none !important;
+}
+.shadow{
+  -webkit-box-shadow: -3px 5px 20px -3px rgba(0,0,0,0.68); 
+  box-shadow: -3px 5px 20px -3px rgba(0,0,0,0.68);
 }

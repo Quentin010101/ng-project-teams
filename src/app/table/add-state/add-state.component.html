@@ -6,7 +6,7 @@
   <div class="addState bg-primary-3">
     <form [formGroup]="form">
       <input class=" color-w-2" type="text" formControlName="name" autofocus (blur)="add()"
-        (keydown)="addOnEnter($event)">
+        (keydown)="addOnEnter($event)" placeholder="Entrer un nom de colonne">
     </form>
   </div>
 </ng-container>

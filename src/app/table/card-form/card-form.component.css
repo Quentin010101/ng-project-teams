@@ -59,4 +59,9 @@ label{
 app-letter{
   cursor: pointer;
 }
+.footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 

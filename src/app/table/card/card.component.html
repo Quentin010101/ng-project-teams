@@ -10,17 +10,10 @@
     </div>
   </div>
   <div class="content">
-    <textarea rows="5" cols="40" readonly class="color-w-4 no-select">{{ task.description }}</textarea>
+    <textarea  cols="40" readonly class="color-w-4 no-select">{{ task.description }}</textarea>
   </div>
   <div class="footer flex">
-    <div>
-      <ng-container *ngIf="task.date_echeance">
-        <div class="date_echeance color-w-3 border-r-1">
-            <p>{{ task.date_echeance | numberToDate | date:'dd-MM' }}</p>
-            <mat-icon>date_range</mat-icon>
-        </div>
-      </ng-container>
-    </div>
+    <app-echeance [date_echeance]="task.date_echeance" (setDateEcheance)="setDateEcheance($event)"></app-echeance>
     <div class="flex persons ">
       <ng-container *ngFor="let p of task.persons">
         <app-letter [person]="p"></app-letter>
@@ -28,7 +21,7 @@
     </div>
   </div>
   <ng-container *ngIf="menuOpen">
-    <div class="menuCard  bg-primary-3 border-r-1" (clickOutside)="closeMenu()">
+    <div class="menuCard  bg-primary-3 border-r-1 shadow" (clickOutside)="closeMenu()">
       <h4 class="color-s-3">Menu</h4>
       <ul>
         <app-hover-container>

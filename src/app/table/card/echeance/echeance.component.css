@@ -1,0 +1,30 @@
+.date_echeance{
+  display: flex;
+  gap: 0.1rem;
+  align-items: center;
+  font-size: 0.8em;
+  background-color: rgb(170, 40, 40);
+  padding: 0.2rem 0.4rem;
+  cursor: pointer;
+}
+.date_echeance mat-icon{
+  transform: scale(0.7);
+}
+.echeanceAdd button{
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.echeanceAdd button:hover{
+  background-color: var(--bg-color-4);
+}
+.date-container{
+  position:relative;
+  overflow: hidden;
+}
+input[type="date"]{
+  position: absolute;
+}

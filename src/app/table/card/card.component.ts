@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Task } from 'src/app/model/Task';
+import { TaskService } from 'src/app/service/task.service';
 
 @Component({
   selector: 'app-card',
@@ -14,7 +15,7 @@ export class CardComponent {
   menuOpen: boolean = false
   bool!: boolean
 
-  constructor(private _eltRef: ElementRef){}
+  constructor(private _taskService: TaskService){}
 
   showForm(){
     if(!this.menuOpen)
@@ -34,5 +35,13 @@ export class CardComponent {
   setCardFormVisibility(bool: boolean){
     this.showCardForm = bool
   }
-  
+  setDateEcheance(e:number){
+    this.task.date_echeance = e
+    this._taskService.updateTask(this.task).subscribe({
+      next: (data) => {
+        this.task = data
+      }
+    })
+  }
+
 }

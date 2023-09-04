@@ -1,0 +1,18 @@
+<div class="date-container">
+  <ng-container *ngIf="date_echeance; else echeance">
+    <div class="date_echeance color-w-3 border-r-1" (click)="addEcheance($event)">
+        <p>{{ date_echeance | numberToDate | date:'dd-MM' }}</p>
+        <mat-icon>date_range</mat-icon>
+    </div>
+  </ng-container>
+  <ng-template #echeance>
+    <div class="echeanceAdd">
+      <button class="color-s-3" (click)="addEcheance($event)">Echéance
+      <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </ng-template>
+  <div>
+    <input #date type="date">
+  </div>
+</div>

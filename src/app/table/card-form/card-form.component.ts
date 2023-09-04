@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 import { Person } from 'src/app/model/Person';
 import { Task } from 'src/app/model/Task';
@@ -9,7 +9,7 @@ import { TaskService } from 'src/app/service/task.service';
   templateUrl: './card-form.component.html',
   styleUrls: ['./card-form.component.css']
 })
-export class CardFormComponent {
+export class CardFormComponent implements OnChanges{
   @Output() visibility = new EventEmitter()
   @Input() task!: Task
   @Input() visible: boolean = false
@@ -28,16 +28,27 @@ export class CardFormComponent {
     this.fillPersonsArray()
     this.personsArray.valueChanges.subscribe({
       next: (d) => {
-        console.log(d)
         this.save()
       } 
     })
+    this.taskGroup.get('date_echeance')?.valueChanges.subscribe({
+      next: (d) => {
+        this.save()
+      } 
+    })
+  }
+  ngOnChanges(changes: any){
+
+      if(changes.task && !changes['task'].firstChange) this.fillForm()
+
+
   }
 
 
   createForm(){
     this.taskGroup = this.fb.group({
       task_id: [''],
+      date_echeance: [''],
       title : ['', Validators.required],
       description : [''],
       state: [''],
@@ -111,7 +122,6 @@ export class CardFormComponent {
   save(){
     if(!this.taskGroup.invalid){
       this.taskGroup.updateValueAndValidity()
-      console.log(this.taskGroup.value)
       this._taskService.updateTask(this.taskGroup.value).subscribe({
         next: (data) => this.task = data
       })
@@ -135,5 +145,7 @@ export class CardFormComponent {
       this.addPersonVisible = false
     }
   }
-
+  setDateEcheance(e:number){
+    this.taskGroup.get('date_echeance')?.setValue(e)
+  }
 }

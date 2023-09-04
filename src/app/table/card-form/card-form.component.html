@@ -1,5 +1,5 @@
 <ng-container *ngIf="visible">
-  <div class="card bg-primary-3 border-r-1" (clickOutside)="test()">
+  <div class="card bg-primary-3 border-r-1 shadow" (clickOutside)="test()">
       <form [formGroup]="taskGroup">
         <div class="header">
           <app-letter [person]="task.person"></app-letter>
@@ -32,7 +32,8 @@
             </div>
           </div>
         </div>
-        <div class="footer">
+        <div class="footer flex">
+          <app-echeance [date_echeance]="task.date_echeance" (setDateEcheance)="setDateEcheance($event)"></app-echeance>
           <div formArrayName="persons" class="flex padd align-center">
             <ng-container *ngFor="let person of persons.controls; let i = index">
               <app-letter [person]="person.value" (click)="removePerson(i, $event)"></app-letter>

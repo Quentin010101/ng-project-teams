@@ -16,17 +16,16 @@ export class TableComponent {
 
   ngOnInit(){
 
-    this.getFakeData()
+    // this.getFakeData()
     
-    // this.getStates()
-    // this.getTasks()
+    this.getStates()
+    this.getTasks()
   }
 
   getTasks(){
     this._taskService.getTasks().subscribe({
       next: (data) => {
         this.tasks = data
-        console.log(this.tasks)
       }
     })
   }
