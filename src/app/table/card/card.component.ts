@@ -14,14 +14,12 @@ export class CardComponent {
   menuOpen: boolean = false
   bool!: boolean
 
-
   constructor(private _eltRef: ElementRef){}
 
   showForm(){
     if(!this.menuOpen)
     this.showCardForm = true
   }
-
   removeTask(){
     this.deleteTask.emit(this.task)
   }

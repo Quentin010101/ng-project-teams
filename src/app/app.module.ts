@@ -13,6 +13,8 @@ import { DatePipe } from './pipe/date.pipe';
 import { DeleteComponent } from './utils/delete/delete.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { ContainerFlexComponent } from './utils/container-flex/container-flex.component';
 import { AddComponent } from './utils/add/add.component';
 import { NoteComponent } from './table/card/note/note.component';
@@ -21,7 +23,6 @@ import { AddStateComponent } from './table/add-state/add-state.component';
 import { RemoveStateComponent } from './table/remove-state/remove-state.component';
 import { AddTaskComponent } from './table/add-task/add-task.component';
 import { CloseElementOnClickOutsideDirective } from './directive/close-element-on-click-outside.directive';
-import { CommonModule } from '@angular/common';
 import { DialogComponent } from './utils/dialog/dialog.component';
 import { AddPersonComponent } from './table/card/add-person/add-person.component';
 import { HoverContainerComponent } from './utils/hover-container/hover-container.component';
@@ -45,7 +46,8 @@ import { HoverContainerComponent } from './utils/hover-container/hover-container
     DialogComponent,
     LetterComponent,
     AddPersonComponent,
-    HoverContainerComponent
+    HoverContainerComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -53,6 +55,8 @@ import { HoverContainerComponent } from './utils/hover-container/hover-container
     ReactiveFormsModule,
     MatIconModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorService, multi: true }

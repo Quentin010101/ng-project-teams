@@ -37,7 +37,7 @@
             <ng-container *ngFor="let person of persons.controls; let i = index">
               <app-letter [person]="person.value" (click)="removePerson(i, $event)"></app-letter>
             </ng-container>
-            <div class="addP" [ngClass]="{'bg-primary-4': hoverAddPerson}" (mouseenter)="hoverAddPerson=true" (mouseleave)="hoverAddPerson=false" (click)="showAddPerson($event)">
+            <div class="addP color-s-3" [ngClass]="{'bg-primary-4': hoverAddPerson}" (mouseenter)="hoverAddPerson=true" (mouseleave)="hoverAddPerson=false" (click)="showAddPerson($event)">
               <mat-icon >person_add</mat-icon>
             </div>
           </div>

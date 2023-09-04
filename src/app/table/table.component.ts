@@ -16,10 +16,10 @@ export class TableComponent {
 
   ngOnInit(){
 
-    // this.getFakeData()
+    this.getFakeData()
     
-    this.getStates()
-    this.getTasks()
+    // this.getStates()
+    // this.getTasks()
   }
 
   getTasks(){
@@ -63,9 +63,9 @@ export class TableComponent {
         task_id: 1,
         date_creation: 111112354,
         date_modification: 0,
-        date_echeance: 0,
+        date_echeance: 1111111111111,
         title: 'title1',
-        description: 'description description description description description',
+        description: 'description description description description description  description description description description  description description description description  description description description description  description description description description',
         notes: [{
           note_id: 1,
           name: 'text',

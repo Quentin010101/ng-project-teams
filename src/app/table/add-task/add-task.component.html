@@ -4,12 +4,13 @@
       class="add"
       [ngClass]="{ 'bg-primary-2': hover, 'bg-primary-3': !hover  }">
   <mat-icon class="color-s-3">add</mat-icon>
+  <p class="color-s-3">Ajouter une tâche</p>
 </div>
 <ng-container *ngIf="newTask">
   <div class="card-temp  bg-primary-3 border-r-1">
     <form [formGroup]="form">
-      <input type="text" formControlName="title" autofocus>
-      <button type="submit" [disabled]="!form.valid" (click)="onSubmit()">Ajouter tâche</button>
+      <input type="text" formControlName="title" autofocus class="color-w-3" placeholder="Entrer un titre">
+      <button type="submit" [disabled]="!form.valid" (click)="onSubmit()" class="color-w-1">Ajouter tâche</button>
     </form>
   </div>
 </ng-container>

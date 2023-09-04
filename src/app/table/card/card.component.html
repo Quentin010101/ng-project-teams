@@ -3,14 +3,24 @@
     <app-letter [person]="task.person"></app-letter>
     <small><i>{{ task.date_creation | numberToDate | date: 'dd/MM/yy' }}</i></small>
   </div>  -->
-  <div class="close" [ngClass]="{'color-s-1':hover,  'color-s-3':!hover}" (mouseleave)="hover=false" (mouseenter)="hover=true" (click)="showMenu($event)">
-    <mat-icon>apps</mat-icon>
+  <div class="container-title">
+    <h4 class="no-select">{{ task.title }}</h4>
+    <div class="close" [ngClass]="{'color-s-1':hover,  'color-s-3':!hover}" (mouseleave)="hover=false" (mouseenter)="hover=true" (click)="showMenu($event)">
+      <mat-icon>apps</mat-icon>
+    </div>
   </div>
   <div class="content">
-    <h4 class="no-select">{{ task.title }}</h4>
-    <textarea rows="5" cols="40" readonly class="color-w-1 no-select">{{ task.description }}</textarea>
+    <textarea rows="5" cols="40" readonly class="color-w-4 no-select">{{ task.description }}</textarea>
   </div>
-  <div class="footer">
+  <div class="footer flex">
+    <div>
+      <ng-container *ngIf="task.date_echeance">
+        <div class="date_echeance color-w-3 border-r-1">
+            <p>{{ task.date_echeance | numberToDate | date:'dd-MM' }}</p>
+            <mat-icon>date_range</mat-icon>
+        </div>
+      </ng-container>
+    </div>
     <div class="flex persons ">
       <ng-container *ngFor="let p of task.persons">
         <app-letter [person]="p"></app-letter>

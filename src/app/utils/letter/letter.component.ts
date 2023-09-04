@@ -10,6 +10,7 @@ export class LetterComponent {
   @Input() person: Person = new Person()
   letter1: string = ''
   letter2: string = ''
+  scaleValue: number = 1
 
 
   ngOnInit(){
@@ -22,7 +23,7 @@ export class LetterComponent {
 
   makeColor(a: string, b: string){
     let tot = (a.charCodeAt(0) + b.charCodeAt(0))*(360/52)
-    return 'hsl(' + tot + ', 70%, 60%)'
+    return 'hsl(' + tot + ', 70%, 45%)'
   }
 
 }

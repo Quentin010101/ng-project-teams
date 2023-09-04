@@ -6,9 +6,8 @@ p{
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  width: 2rem;
-  height: 2rem;
-  padding: 0.5rem;
+  width: 1.75rem;
+  height: 1.75rem;
   font-weight: 500;
   font-size: 0.8em;
 }
