@@ -1,7 +1,14 @@
 <div class="container" [formGroup]="form">
-  <input type="checkbox" formControlName="bool" id="">
+  <div class="checkbox">
+    <input type="checkbox" formControlName="bool" id="">
+    <div class="icon">
+      <mat-icon>check</mat-icon>
+    </div>
+  </div>
   <app-hover-container>
-    <input class="color-w-3" type="text" formControlName="name" [ngStyle]="{'text-decoration': form.get('bool')?.value? 'line-through' : ''}">
-    <app-delete (click)="delete()"></app-delete>
+    <div class=" note-item">
+      <input class="color-w-3" type="text" formControlName="name" [ngStyle]="{'text-decoration': form.get('bool')?.value? 'line-through' : ''}">
+      <app-delete (click)="delete()"></app-delete>
+    </div>
   </app-hover-container>
 </div>

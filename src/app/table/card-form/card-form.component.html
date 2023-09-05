@@ -1,4 +1,4 @@
-<ng-container *ngIf="visible">
+<ng-container *ngIf="!visible">
   <div class="card bg-primary-3 border-r-1 shadow" (clickOutside)="test()">
       <form [formGroup]="taskGroup">
         <div class="header">
@@ -25,9 +25,18 @@
               <ng-container *ngFor="let note of notes.controls; let i = index">
                 <app-note [y]="note" [index]="i" (deleteNote)="deleteNote($event)" (save)="save()"></app-note>
               </ng-container>
-              <div>
-                <input type="checkbox"  id="">
-                <input type="text" (blur)="addNotes($event)" class="color-w-3">
+              <div class="container-note">
+                <div class="checkbox">
+                  <input type="checkbox" id="">
+                  <div class="icon">
+                    <mat-icon>check</mat-icon>
+                  </div>
+                </div>
+                <div class="note-item">
+                  <app-hover-container>
+                    <input type="text" (blur)="addNotes($event)" class="color-w-3">
+                  </app-hover-container>
+                </div>
               </div>
             </div>
           </div>

@@ -10,15 +10,16 @@
 .date_echeance mat-icon{
   transform: scale(0.7);
 }
-.echeanceAdd button{
+.echeanceAdd .btn{
   display: flex;
   align-items: center;
   gap: 0.25rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  font-size: 0.8em;
 }
-.echeanceAdd button:hover{
+.echeanceAdd .btn:hover{
   background-color: var(--bg-color-4);
 }
 .date-container{
