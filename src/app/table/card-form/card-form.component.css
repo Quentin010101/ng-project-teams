@@ -98,7 +98,7 @@ input[type="checkbox"]:checked ~ .icon mat-icon{
 
 .checkbox{
   position: relative;
-  transform: scale(0.8);
+  transform: scale(0.6);
 }
 
 .note-item input[type="text"]{

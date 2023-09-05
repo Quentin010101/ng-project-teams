@@ -94,6 +94,6 @@ h1,h2,h3,h4,h5,h6,p, label{
   user-select: none !important;
 }
 .shadow{
-  -webkit-box-shadow: -3px 5px 20px -3px rgba(0,0,0,0.68); 
-  box-shadow: -3px 5px 20px -3px rgba(0,0,0,0.68);
+  -webkit-box-shadow: -3px 5px 20px -3px rgba(0,0,0,0.38); 
+  box-shadow: -3px 5px 10px -3px rgba(0,0,0,0.38);
 }

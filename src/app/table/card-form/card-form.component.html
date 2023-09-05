@@ -1,4 +1,4 @@
-<ng-container *ngIf="!visible">
+<ng-container *ngIf="visible">
   <div class="card bg-primary-3 border-r-1 shadow" (clickOutside)="test()">
       <form [formGroup]="taskGroup">
         <div class="header">
@@ -20,7 +20,7 @@
             </div>
           </div>
           <div class="field">
-            <label for="" class="color-s-3">Notes:</label>
+            <label for="" class="color-s-3">Liste de notes {{nbNotesActive()}}/{{ notes.length }}</label>
             <div formArrayName="notes" class="f_notes">
               <ng-container *ngFor="let note of notes.controls; let i = index">
                 <app-note [y]="note" [index]="i" (deleteNote)="deleteNote($event)" (save)="save()"></app-note>

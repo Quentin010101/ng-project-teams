@@ -18,6 +18,7 @@ export class CardFormComponent implements OnChanges{
   hoverAddPerson: boolean = false
   addPersonVisible: boolean = false
   personsArray!: FormArray
+  notesArray!: FormArray
 
   constructor(private fb: FormBuilder, private _taskService: TaskService){}
 
@@ -62,9 +63,9 @@ export class CardFormComponent implements OnChanges{
   }
 
   fillNotesArray(){
-    const notesArray = this.taskGroup.get('notes')  as FormArray
+    this.notesArray = this.taskGroup.get('notes')  as FormArray
     for(let i = 0; i < this.task.notes.length; i++){    
-      notesArray.push(
+      this.notesArray.push(
         new FormGroup({
          name: new FormControl(this.task.notes[i].name),
          bool: new FormControl(this.task.notes[i].bool)
@@ -89,9 +90,8 @@ export class CardFormComponent implements OnChanges{
   //Notes
   addNotes(e: Event){
     if((e.target as HTMLInputElement).value != ''){
-      const notesArray = this.taskGroup.get('notes')  as FormArray
       
-      notesArray.push(new FormGroup({
+      this.notesArray.push(new FormGroup({
         name: new FormControl((e.target as HTMLInputElement).value),
         bool: new FormControl(false)
       }))
@@ -101,8 +101,7 @@ export class CardFormComponent implements OnChanges{
   }
 
   deleteNote(e: number){
-    const notesArray = this.taskGroup.get('notes')  as FormArray
-    notesArray.removeAt(e)
+    this.notesArray.removeAt(e)
   }
   clearInput(e: Event){
     (e.target as HTMLInputElement).value =''
@@ -147,5 +146,12 @@ export class CardFormComponent implements OnChanges{
   }
   setDateEcheance(e:number){
     this.taskGroup.get('date_echeance')?.setValue(e)
+  }
+  nbNotesActive(){
+    let result:number = 0
+    this.notesArray.controls.forEach(element => {
+      if(element.get('bool')?.value) result++
+    });
+    return result
   }
 }
