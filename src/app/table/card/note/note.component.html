@@ -6,9 +6,11 @@
     </div>
   </div>
   <app-hover-container>
-    <div class=" note-item">
+    <div class="note-item" (mouseenter)="noteHover=true" (mouseleave)="noteHover=false" >
       <input class="color-w-3" type="text" formControlName="name" [ngStyle]="{'text-decoration': form.get('bool')?.value? 'line-through' : ''}">
-      <app-delete (click)="delete()"></app-delete>
+      <ng-container *ngIf="noteHover">
+        <app-delete (click)="delete()"></app-delete>
+      </ng-container>
     </div>
   </app-hover-container>
 </div>

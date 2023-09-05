@@ -10,6 +10,7 @@ export class NoteComponent {
   @Input() y!: AbstractControl | null
   @Input() index!: number
   @Output() deleteNote = new EventEmitter<number>
+  noteHover: boolean = false
 
   form!: FormGroup
 

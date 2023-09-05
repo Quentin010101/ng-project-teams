@@ -6,12 +6,15 @@ input{
 }
 input[type="text"]{
     width: 100%;
-    height: 20px;
+    height: 25px;
 }
 /* input[type="text"]:hover{
     cursor: pointer;
 } */
-input[type="text"]:enabled{
+input[type="text"]:hover{
+    cursor:pointer;
+}
+input[type="text"]:focus{
     cursor:text;
 }
 .container{

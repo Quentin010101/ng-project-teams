@@ -103,7 +103,13 @@ input[type="checkbox"]:checked ~ .icon mat-icon{
 
 .note-item input[type="text"]{
   width: 100%;
-  height: 20px;
+  height: 25px;
+}
+.note-item input[type="text"]:hover{
+  cursor: pointer;
+}
+.note-item input[type="text"]:focus{
+  cursor: text;
 }
 .container-note{
   display: flex;
