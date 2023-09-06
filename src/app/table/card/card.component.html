@@ -29,6 +29,18 @@
             Supprimer tâche
           </li>
         </app-hover-container>
+        <ng-container *ngIf="getOtherStates().length > 0">
+          <app-hover-container>
+          <li>
+            <select (change)="moveTask($event)" class="color-w-3">
+              <option selected disabled>{{ task.state.name }}</option>
+              <ng-container *ngFor="let state of getOtherStates()">
+                <option value="{{ state.state_id}}">{{ state.name }}</option>
+              </ng-container>
+            </select>
+          </li>
+        </app-hover-container>
+        </ng-container>
       </ul>
     </div>
   </ng-container>

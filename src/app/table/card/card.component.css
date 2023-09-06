@@ -73,5 +73,15 @@ textarea{
   padding-top: 0.5rem;
   margin-top: 0.5rem;
 }
+select{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+}
+li{
+  width: 100%;
+}
 
 

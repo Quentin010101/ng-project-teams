@@ -12,6 +12,7 @@ import { DialogComponent } from 'src/app/utils/dialog/dialog.component';
 })
 export class ColumnComponent {
   @Input() state!: State
+  @Input() states!: State[]
   @Input() tasks!: Task[]
   @Output() updateState = new EventEmitter() 
   hover: boolean = false

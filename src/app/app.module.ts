@@ -27,6 +27,7 @@ import { DialogComponent } from './utils/dialog/dialog.component';
 import { AddPersonComponent } from './table/card/add-person/add-person.component';
 import { HoverContainerComponent } from './utils/hover-container/hover-container.component';
 import { EcheanceComponent } from './table/card/echeance/echeance.component';
+import { DragableContainerComponent } from './utils/dragable-container/dragable-container.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { EcheanceComponent } from './table/card/echeance/echeance.component';
     AddPersonComponent,
     HoverContainerComponent,
     EcheanceComponent,
+    DragableContainerComponent,
     
   ],
   imports: [

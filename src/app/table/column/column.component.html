@@ -13,7 +13,9 @@
   <div class="content">
     <ng-container *ngIf="tasksOfState[0] != null">
       <ng-container *ngFor="let task of tasksOfState">
-        <app-card [task]="task" (deleteTask)="deleteTask(task)"></app-card>
+        <app-dragable-container [taskId]="task.task_id">
+          <app-card [task]="task" [states]="states" (deleteTask)="deleteTask(task)"></app-card>
+        </app-dragable-container>
       </ng-container>
     </ng-container>
   </div>

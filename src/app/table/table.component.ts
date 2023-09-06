@@ -122,7 +122,7 @@ export class TableComponent {
         }],
         state: {
           state_id: 2,
-          name: "A Faire",
+          name: "En cours",
         },
         person: {
           person_id: 0,
@@ -172,7 +172,7 @@ export class TableComponent {
         }],
         state: {
           state_id: 2,
-          name: "A Faire",
+          name: "En cours",
         },
         person: {
           person_id: 0,
